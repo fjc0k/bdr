@@ -15,6 +15,7 @@ const json = require('rollup-plugin-json')
 const re = require('rollup-plugin-re')
 const preset = require('@fir-ui/babel-preset-library')
 const createBanner = require('./create-banner')
+const postBundle = require('./post-bundle')
 const rollup = require('./rollup')
 
 module.exports = ({ config: configName = 'firb' } = {}) => {
@@ -102,17 +103,31 @@ module.exports = ({ config: configName = 'firb' } = {}) => {
               if (!cssProcessed[id]) {
                 const cssFilePath = path.join(
                   config.dest,
-                  config.filename
-                    .replace(/\[name\]/g, name)
-                    .replace(/\[suffix\]/g, compress ? '.min' : '')
-                    .replace(/\[type\]/g, 'css')
+                  config.filename({
+                    type: 'css',
+                    suffix: compress ? '.min' : '',
+                    name,
+                    format,
+                    compress
+                  })
                 )
                 let { code, map } = getExtracted()
                 code = compress ? String(code).replace(/\r|\n/g, '') : code
-                fs.writeFile(cssFilePath, banner + code, 'utf8')
-                consola.success(`Built: ${path.basename(cssFilePath)}`)
-                config.sourceMap && fs.writeFile(`${cssFilePath}.map`, map, 'utf8')
+                fs.outputFileSync(cssFilePath, banner + code, 'utf8')
+                config.sourceMap && fs.outputFileSync(`${cssFilePath}.map`, map, 'utf8')
                 cssProcessed[id] = true
+
+                // postBundle
+                if (config.postBundle) {
+                  postBundle(config.postBundle, {
+                    type: 'css',
+                    name,
+                    file: cssFilePath,
+                    compress
+                  })
+                }
+
+                consola.success(`Built: ${path.basename(cssFilePath)}`)
               }
               return false
             }
@@ -141,18 +156,26 @@ module.exports = ({ config: configName = 'firb' } = {}) => {
         banner: banner,
         file: path.join(
           config.dest,
-          config.filename
-            .replace(/\[name\]/g, name)
-            .replace(/\[suffix\]/g, suffix)
-            .replace(/\[type\]/g, 'js')
+          config.filename({ type: 'js', name, file: filePath, format, compress, suffix })
         )
-      }, config.afterBundle, (_, { file }) => {
+      }, (_, { file }) => {
         // getUmdMinSize
         if (config.getUmdMinSize && format === 'umd' && compress) {
           const umdContent = fs.readFileSync(file)
           const rawSize = fileSize(Buffer.byteLength(umdContent))
           const gzippedSize = fileSize(gzipSize.sync(umdContent))
           config.getUmdMinSize(rawSize, gzippedSize)
+        }
+
+        // postBundle
+        if (config.postBundle) {
+          postBundle(config.postBundle, {
+            type: 'js',
+            name,
+            file,
+            format,
+            compress
+          })
         }
 
         consola.success(`Built: ${path.basename(file)}`)

@@ -54,11 +54,25 @@ module.exports = configName => {
   config.format = config.format ? parseFormat(config.format) : {}
   config.dest = realPath(config.dest)
 
+  // Normalize alias
   if (_.isPlainObject(config.alias)) {
     config.alias = _.mapValues(
       config.alias,
       src => realPath(src)
     )
+  }
+
+  // Normalize filename
+  if (!_.isFunction(config.filename)) {
+    const filename = String(config.filename)
+    config.filename = args => {
+      return _.reduce(args, (filename, value, key) => {
+        return filename.replace(
+          new RegExp(`\\[${key}\\]`, 'g'),
+          value
+        )
+      }, filename)
+    }
   }
 
   return config
