@@ -75,6 +75,7 @@ module.exports = ({ config: configName = 'firb' } = {}) => {
           postcss({
             extract: true,
             minimize: compress && {
+              safe: true,
               discardUnused: false,
               mergeLonghand: false
             },
