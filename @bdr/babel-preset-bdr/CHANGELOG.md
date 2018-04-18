@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.3.3"></a>
+## [1.3.3](https://github.com/fjc0k/bdr/tree/master/packages/babel-preset-bdr/compare/v1.3.2...v1.3.3) (2018-04-18)
+
+
+### Bug Fixes
+
+* keywords ([9a40555](https://github.com/fjc0k/bdr/tree/master/packages/babel-preset-bdr/commit/9a40555))
+
+
+
+
 <a name="0.0.12"></a>
 ## [0.0.12](https://github.com/fjc0k/fir-ui/compare/@fir-ui/babel-preset-library@0.0.11...@fir-ui/babel-preset-library@0.0.12) (2018-04-17)
 

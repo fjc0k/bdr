@@ -1,6 +1,6 @@
 {
   "name": "bdr",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Yet another BunDleR.",
   "main": "src/bundle.js",
   "author": {
@@ -44,7 +44,7 @@
   ],
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
-    "@bdr/babel-preset-bdr": "^1.3.0",
+    "@bdr/babel-preset-bdr": "^1.3.3",
     "autoprefixer": "^8.2.0",
     "cac": "^4.4.4",
     "consola": "^1.3.0",
