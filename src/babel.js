@@ -3,7 +3,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const depth = require('path-depth')
 const { transformFileSync } = require('@babel/core')
-const preset = require('@fir-ui/babel-preset-library')
+const preset = require('@bdr/babel-preset-bdr')
 const realPath = require('./real-path')
 
 const cwd = realPath('.')
