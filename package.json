@@ -28,8 +28,7 @@
   ],
   "scripts": {
     "test": "node src/cli.js",
-    "release": "standard-version -a",
-    "postrelease": "git push --follow-tags origin master && npm publish"
+    "release": "lerna publish"
   },
   "eslintConfig": {
     "root": true,
@@ -75,6 +74,7 @@
   "devDependencies": {
     "@fir-ui/eslint-config-fir": "^0.3.2",
     "eslint": "^4.19.1",
+    "lerna": "^2.9.0",
     "standard-version": "^4.3.0"
   }
 }
