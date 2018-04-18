@@ -1,6 +1,6 @@
 {
   "name": "@bdr/babel-preset-bdr",
-  "version": "0.0.1",
+  "version": "1.3.0",
   "description": "Babel preset for bdr.",
   "main": "src/index.js",
   "author": {
