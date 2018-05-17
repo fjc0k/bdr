@@ -15,6 +15,7 @@ module.exports = declare(
       loose = true,
       polyfill = false,
       lodash = true,
+      objectAssign = false,
       env = {}
     } = options
 
@@ -50,7 +51,7 @@ module.exports = declare(
       // Object spread
       [transformObjectSpread, {
         loose,
-        useBuiltIns: true
+        useBuiltIns: objectAssign
       }],
       // Class properties
       [transformClassProperties, {

@@ -18,7 +18,7 @@ const createBanner = require('./create-banner')
 const postBundle = require('./post-bundle')
 const rollup = require('./rollup')
 
-module.exports = ({ config: configName = 'firb' } = {}) => {
+module.exports = ({ config: configName = 'bdr' } = {}) => {
   consola.start('Building...')
 
   const config = require('./config')(configName)
