@@ -13,6 +13,8 @@ const commonjs = require('rollup-plugin-commonjs')
 const alias = require('rollup-plugin-alias')
 const json = require('rollup-plugin-json')
 const re = require('rollup-plugin-re')
+const vue = require('rollup-plugin-vue').default
+const svgToSymbol = require('rollup-plugin-svg-to-symbol')
 const preset = require('@bdr/babel-preset-bdr')
 const createBanner = require('./create-banner')
 const postBundle = require('./post-bundle')
@@ -72,6 +74,10 @@ module.exports = ({ config: configName = 'bdr' } = {}) => {
             extensions: config.resolve
           }),
           commonjs(),
+          svgToSymbol(),
+          vue({
+            css: false
+          }),
           json(),
           postcss({
             extract: true,
