@@ -28,7 +28,8 @@ const defaultConfig = {
   clear: true,
   inline: false,
   replace: false,
-  external: false
+  external: false,
+  typescript: undefined
 }
 
 module.exports = configName => {

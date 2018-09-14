@@ -64,7 +64,9 @@ module.exports = ({ config: configName = 'bdr' } = {}) => {
           })
         }),
         plugins: [
-          /\.ts$/.test(filePath) && typescript(),
+          /\.ts$/.test(filePath) && typescript({
+            typescript: config.typescript
+          }),
           config.replace && re(config.replace),
           config.alias && alias({
             ...config.alias,
