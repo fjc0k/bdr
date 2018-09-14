@@ -15,6 +15,7 @@ const json = require('rollup-plugin-json')
 const re = require('rollup-plugin-re')
 const vue = require('rollup-plugin-vue').default
 const svgToSymbol = require('rollup-plugin-svg-to-symbol')
+const typescript = require('rollup-plugin-typescript')
 const preset = require('@bdr/babel-preset-bdr')
 const createBanner = require('./create-banner')
 const postBundle = require('./post-bundle')
@@ -63,6 +64,7 @@ module.exports = ({ config: configName = 'bdr' } = {}) => {
           })
         }),
         plugins: [
+          /\.ts$/.test(filePath) && typescript(),
           config.replace && re(config.replace),
           config.alias && alias({
             ...config.alias,

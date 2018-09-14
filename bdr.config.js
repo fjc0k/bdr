@@ -1,6 +1,6 @@
 module.exports = {
-  entry: 'test/index.js',
-  format: 'cjs,umd-min',
+  entry: 'test/index.ts',
+  format: 'es,cjs,umd-min',
   alias: {
     '@': 'test'
   },

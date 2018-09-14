@@ -3,13 +3,10 @@
  * (c) 2018-present fjc0k <fjc0kb@gmail.com> (https://github.com/fjc0k)
  * Released under the MIT License.
  */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
+var x;
 (function (x) {
     x[x["1"] = 1] = "1";
-})(exports.x || (exports.x = {}));
+})(x || (x = {}));
 var Test = (function () {
     function Test() {
         this.t = 0;
@@ -21,4 +18,5 @@ var Test = (function () {
     return Test;
 }());
 
-exports.default = Test;
+export default Test;
+export { x };
