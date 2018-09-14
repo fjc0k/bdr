@@ -1,6 +1,6 @@
 {
   "name": "bdr",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Yet another BunDleR.",
   "main": "src/bundle.js",
   "author": {
