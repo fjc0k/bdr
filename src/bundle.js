@@ -63,6 +63,7 @@ module.exports = ({ config: configName = 'bdr' } = {}) => {
             return minimatch(id, pattern)
           })
         }),
+        globals: config.globals,
         plugins: [
           /\.ts$/.test(filePath) && typescript({
             typescript: config.typescript

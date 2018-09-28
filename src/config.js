@@ -29,7 +29,8 @@ const defaultConfig = {
   inline: false,
   replace: false,
   external: false,
-  typescript: undefined
+  typescript: undefined,
+  globals: {}
 }
 
 module.exports = configName => {
@@ -74,6 +75,15 @@ module.exports = configName => {
         )
       }, filename)
     }
+  }
+
+  // Normalize external
+  if (_.isPlainObject(config.external)) {
+    config.globals = {
+      ...config.globals,
+      ...config.external
+    }
+    config.external = Object.keys(config.external)
   }
 
   return config
