@@ -63,7 +63,6 @@ module.exports = ({ config: configName = 'bdr' } = {}) => {
             return minimatch(id, pattern)
           })
         }),
-        globals: config.globals,
         plugins: [
           /\.ts$/.test(filePath) && typescript({
             typescript: config.typescript
@@ -165,6 +164,7 @@ module.exports = ({ config: configName = 'bdr' } = {}) => {
         name: moduleName,
         sourcemap: config.sourceMap,
         banner: banner,
+        globals: config.globals,
         file: path.join(
           config.dest,
           config.filename({ type: 'js', name, file: filePath, format, compress, suffix })
