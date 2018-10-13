@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/fjc0k/bdr/compare/v1.6.1...v1.7.0) (2018-10-13)
+
+
+### Features
+
+* update ([e0474a7](https://github.com/fjc0k/bdr/commit/e0474a7))
+
+
+
+
+
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/fjc0k/bdr/compare/v1.6.1...v1.7.0) (2018-10-13)
+
+
+### Features
+
+* update ([e0474a7](https://github.com/fjc0k/bdr/commit/e0474a7))
+
+
+
+
+
 <a name="1.6.1"></a>
 ## [1.6.1](https://github.com/fjc0k/bdr/compare/v1.6.0...v1.6.1) (2018-09-28)
 
