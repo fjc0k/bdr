@@ -38,4 +38,12 @@ cli
     })
   })
 
+cli
+  .command('example', 'Build dev', ([entry], flags) => {
+    require('./poi')('build', {
+      ...flags,
+      entry
+    })
+  })
+
 cli.parse()

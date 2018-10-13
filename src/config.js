@@ -29,7 +29,7 @@ const defaultConfig = {
   inline: false,
   replace: false,
   external: false,
-  typescript: undefined,
+  typescript: require('typescript'),
   globals: {}
 }
 
